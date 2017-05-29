@@ -4,7 +4,7 @@
     "description": "A cli wrapper for bake-core",
     "main": "dist/bake.cli.js",
     "scripts": {
-        "build": "./node_modules/.bin/babel lib/bake.cli.js > dist/bake.cli.js",
+        "build": " ./node_modules/.bin/eslint lib/bake.cli.js && ./node_modules/.bin/babel lib/bake.cli.js > dist/bake.cli.js",
         "test": "./node_modules/.bin/mocha"
     },
     "repository": {
@@ -31,9 +31,12 @@
         "babel-cli": "^6.24.1",
         "babel-core": "^6.24.1",
         "babel-preset-es2015": "^6.24.1",
+        "eslint": "^3.19.0",
+        "eslint-config-google": "^0.7.1",
         "mocha": "^3.4.2"
     },
     "dependencies": {
-        "bake.core": "^1.0.11"
+        "bake.core": "^1.0.11",
+        "commander": "^2.9.0"
     }
 }

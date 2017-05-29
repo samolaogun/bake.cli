@@ -18,64 +18,19 @@ var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
 
-var _process = require('process');
+var _commander = require('commander');
 
-var _process2 = _interopRequireDefault(_process);
+var _commander2 = _interopRequireDefault(_commander);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var help = '\nUsage: bake [options] [sourceFile] [outputFile]\n\nOptions:\n    -b, --bare             unformatted document\n    -u, --undo-prolog      remove prolog\n\n';
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var mapFlags = {
-    '-b': { format: false },
-    '-u': { prolog: '' }
-};
-
-_process2.default.on('uncaughtException', function (err) {
-    return _fs2.default.writeSync(1, 'bake-core: "' + err + '"\n');
+process.on('uncaughtException', function (e) {
+    _fs2.default.writeSync(1, 'bake.core: "' + e + '"\n');
 });
 
-var applyFlags = function applyFlags(flags) {
-    return flags.map(function (flag) {
-        return flag.startsWith('--') ? flag.slice(1, 3) : flag;
-    }).forEach(function (flag) {
-        return config = Object.assign({}, config, mapFlags[flag]);
-    });
-};
+_commander2.default.version('1.0.1').usage('[options] [sourceFile [,outputFile]]').option('-f, --format', 'unformatted document').option('-p, --prolog', 'remove prolog').option('-pa, --parent [name]', 'add wrapper with name').option('-s, --strict', 'strict content parsing').option('-ai, --attribute-indentifier [name]', 'set content identifier').option('-ci, --content-identifier [name]', 'set content identifier').parse(process.argv);
 
-var config = {};
-var args = _process2.default.argv.slice(2);
-
-var fileArgs = args.filter(function (arg) {
-    return !(arg.startsWith('--') || arg.startsWith('-'));
-});
-
-var flags = args.filter(function (arg) {
-    return arg.startsWith('--') || arg.startsWith('-');
-}).map(function (arg) {
-    return arg.startsWith('--') ? arg.slice(1, 3) : arg;
-});
-
-var doProcess = flags.every(function (flag) {
-    if (flag === '-h') {
-        _fs2.default.writeSync(1, help);
-        return false;
-    }
-
-    return true;
-});
-
-if (doProcess) {
-    var _ref;
-
-    var sourceFile = void 0,
-        outputFile = false,
-        opts = [];
-
-    fileArgs.length > 1 ? (_ref = [fileArgs.slice(-2, -1)[0], fileArgs.slice(-1)[0]], sourceFile = _ref[0], outputFile = _ref[1], _ref) : fileArgs[0] ? sourceFile = fileArgs[0] : null;
-
-    applyFlags(flags);
-
-    outputFile ? (0, _bake2.default)(config)(sourceFile, outputFile) : _fs2.default.writeSync(1, (0, _bake2.default)(config)(sourceFile));
-}
+(0, _bake2.default)(_commander2.default).apply(undefined, _toConsumableArray(_commander2.default.args.splice(0, 2)));
 
