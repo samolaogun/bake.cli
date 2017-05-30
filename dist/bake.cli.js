@@ -33,7 +33,7 @@ var parent = function parent(arg) {
     return _commander2.default.parent = JSON.parse(arg);
 };
 
-_commander2.default.version('1.0.1').usage('[options] [sourceFile [,outputFile]]').option('-p, --parent [json]', 'top level parent obj', parent).option('-a, --attr', 'enable attribute-content syntax').option('-a, --attribute-indentifier [name]', 'set content identifier').option('-c, --content-identifier [name]', 'set content identifier').option('-s, --strict', 'strict content parsing').option('-u, --unformat', 'unformatted document').option('-l, --prolog [prolog]', 'specify prolog').parse(process.argv);
+_commander2.default.version('1.0.1').usage('[options] [sourceFile [,outputFile]]').option('-p, --parent [json]', 'top level parent obj', parent).option('-e, --attr', 'enable attribute-content syntax').option('-a, --attribute-indentifier [name]', 'set content identifier').option('-c, --content-identifier [name]', 'set content identifier').option('-s, --strict', 'strict content parsing').option('-u, --unformat', 'unformatted document').option('-l, --prolog [prolog]', 'specify prolog').parse(process.argv);
 
 var result = (0, _bake2.default)(_commander2.default).apply(undefined, _toConsumableArray(_commander2.default.args.splice(0, 2)));
 if (result) _fs2.default.writeSync(1, result + '\n');

@@ -1,42 +1,42 @@
 {
-  "name": "bake.cli",
-  "version": "1.0.5",
-  "description": "A cli wrapper for bake-core",
-  "main": "dist/bake.cli.js",
-  "scripts": {
-    "build": "./node_modules/.bin/eslint lib/bake.cli.js && ./node_modules/.bin/babel lib/bake.cli.js > dist/bake.cli.js",
-    "test": "./node_modules/.bin/mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/samolaogun/bake.cli.git"
-  },
-  "keywords": [
-    "cli",
-    "json",
-    "xml",
-    "parser"
-  ],
-  "author": "Sam Olaogun <sam.olaogun@gmail.com> (http://samolaogun.com)",
-  "license": "MIT",
-  "preferGlobal": true,
-  "bin": {
-    "bake": "./dist/bake.cli.js"
-  },
-  "bugs": {
-    "url": "https://github.com/samolaogun/bake.cli/issues"
-  },
-  "homepage": "https://github.com/samolaogun/bake.cli#readme",
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-config-google": "^0.7.1",
-    "mocha": "^3.4.2"
-  },
-  "dependencies": {
-    "bake.core": "^1.0.11",
-    "commander": "^2.9.0"
-  }
+    "name": "bake.cli",
+    "version": "1.0.5",
+    "description": "A cli wrapper for bake-core",
+    "main": "dist/bake.cli.js",
+    "scripts": {
+        "build": "./node_modules/.bin/eslint lib/bake.cli.js && ./node_modules/.bin/babel lib/bake.cli.js > dist/bake.cli.js",
+        "test": "./node_modules/.bin/mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/samolaogun/bake.cli.git"
+    },
+    "keywords": [
+        "cli",
+        "json",
+        "xml",
+        "parser"
+    ],
+    "author": "Sam Olaogun <sam.olaogun@gmail.com> (http://samolaogun.com)",
+    "license": "MIT",
+    "preferGlobal": true,
+    "bin": {
+        "bake": "./dist/bake.cli.js"
+    },
+    "bugs": {
+        "url": "https://github.com/samolaogun/bake.cli/issues"
+    },
+    "homepage": "https://github.com/samolaogun/bake.cli#readme",
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-preset-es2015": "^6.24.1",
+        "eslint": "^3.19.0",
+        "eslint-config-google": "^0.7.1",
+        "mocha": "^3.4.2"
+    },
+    "dependencies": {
+        "bake.core": "^1.0.11",
+        "commander": "^2.9.0"
+    }
 }
