@@ -1,4 +1,4 @@
-### bake.cli
+# bake.cli
 
 ## Basic Usage
 
